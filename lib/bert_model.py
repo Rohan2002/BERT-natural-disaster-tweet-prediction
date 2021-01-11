@@ -1,4 +1,5 @@
 import warnings
+
 warnings.filterwarnings("ignore")
 
 import tensorflow as tf
@@ -79,6 +80,7 @@ def bert_encode(texts, max_length=128):
         np.array(all_input_ids),
         np.array(all_segment_ids),
     )
+
 
 # BERT Pretrained Layer with Custom Feed-Forward Neural Network. hp is for hyper-parameter tuning for keras-tuner
 def build_model(hp):

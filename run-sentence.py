@@ -1,4 +1,5 @@
 import warnings
+
 warnings.filterwarnings("ignore")
 
 from tensorflow import keras
@@ -29,6 +30,10 @@ bert_encoded_sentence = bert_encode([input_sentence_preprocess])
 pred = bert_model_saved.predict(bert_encoded_sentence)
 # Probability
 formatted_prob = round(pred[0][0] * 100, 0)
-print("\n--------------------------------------------Result Start--------------------------------------------\n")
-print(f"The tweet's \"{input_sentence}\" relation to a disaster is {formatted_prob}%")
-print("\n--------------------------------------------Result End--------------------------------------------\n")
+print(
+    "\n--------------------------------------------Result Start--------------------------------------------\n"
+)
+print(f'The tweet\'s "{input_sentence}" relation to a disaster is {formatted_prob}%')
+print(
+    "\n--------------------------------------------Result End--------------------------------------------\n"
+)

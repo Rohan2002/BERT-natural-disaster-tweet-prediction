@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import warnings
+
 warnings.filterwarnings("ignore")
 
 import pandas as pd
@@ -127,6 +128,7 @@ def clean_text_column(col_name, df=df):
     df["clean_text"] = ""
     df["clean_text"] = df[col_name].apply(preprocess.clean_sentence_pipeline)
 
+
 # Data Splits
 clean_text_column("text")
 x_train, x_val, y_train, y_val = train_test_split(
@@ -185,6 +187,7 @@ def train():
         ),
         callbacks=[checkpoint_cb, early_stopping_cb, tensorboard_cb],
     )
+
 
 # Train neural network.
 if not already_trained:
