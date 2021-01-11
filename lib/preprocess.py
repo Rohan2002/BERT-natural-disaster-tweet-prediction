@@ -1,3 +1,6 @@
+import warnings
+warnings.filterwarnings("ignore")
+
 import nltk
 from nltk.corpus import stopwords
 import emoji

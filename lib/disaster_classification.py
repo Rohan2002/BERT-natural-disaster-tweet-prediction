@@ -2,8 +2,7 @@
 # coding: utf-8
 
 import warnings
-
-warnings.filterwarnings("ignore", category=FutureWarning)
+warnings.filterwarnings("ignore")
 
 import pandas as pd
 import numpy as np
