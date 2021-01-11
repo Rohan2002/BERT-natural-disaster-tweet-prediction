@@ -7,13 +7,14 @@ import unicodedata
 from nltk.stem import WordNetLemmatizer
 import re
 
-nltk.download("wordnet")
+# nltk.download("wordnet")
 
 
 # Lower case text data
 def lower_case_data(data=""):
     data = data.lower()
     return data
+
 
 # Handle Emojis
 def sentences_with_emojis(id_texts):
@@ -39,10 +40,12 @@ def clean_emojis(text):
     )
     return clean_text
 
+
 # Clean urls
 def clean_urls(text):
     text = re.sub(r"https?://\S+", "", text)
     return text
+
 
 # Remove all sorts of special characters and punctuations.
 def removeSpecialChar(text):
@@ -54,9 +57,11 @@ def removeSpecialChar(text):
             sentence.append(s)
     return "".join(sentence)
 
+
 # Check any html text
 def checkHtml(text):
     return bool(BeautifulSoup(text, "html.parser").find())
+
 
 # Remove accented text
 def remove_accented_chars(text):
@@ -67,6 +72,7 @@ def remove_accented_chars(text):
     )
     return new_text
 
+
 # Explore Stopwords list from nltk
 def remove_words_having_not(words=[""]):
     for word in words:
@@ -74,13 +80,15 @@ def remove_words_having_not(words=[""]):
             words.remove(word)
     return words
 
+
 # Custom stopwords list
 def stopwords_list():
     stopwords_list = stopwords.words("english")
     stopwords_list = remove_words_having_not(
-    [removeSpecialChar(contractions.fix(word)) for word in stopwords_list]
+        [removeSpecialChar(contractions.fix(word)) for word in stopwords_list]
     )
     return stopwords_list
+
 
 # Remove stopwords from nltk corpus
 def remove_stopwords(text):
@@ -100,6 +108,7 @@ def remove_numbers(text=""):
         new_sentence += num_free_word + " "
     return new_sentence
 
+
 # lemmatization
 def lemmatize(text):
     lemmatizer = WordNetLemmatizer()
@@ -109,9 +118,11 @@ def lemmatize(text):
         new_sentence += lematized_word + " "
     return new_sentence
 
+
 # Final data cleaning step is removing non-essential whitespaces
 def remove_white_space(text):
     return " ".join(text.split())
+
 
 # Text cleaning pipeline
 def clean_sentence_pipeline(text):
