@@ -18,7 +18,7 @@ My model image generated from Keras plot utils:
 My Keras generated Model
 ![model_plot](./images/my_generated_model.png)
 
-BERT encoder
+BERT encoder source: https://arxiv.org/pdf/1810.04805.pdf
 ![encoder](./images/NSP.png)
 ## Want to Try out?
 1. Since the model file is over 1GB, you might need git lfs to pull the project via CLI. If not, you can manually try to download it by clicking the download repo button on the Github Repo.
