@@ -8,6 +8,7 @@ from lib.bert_model import bert_encode
 
 input_sentence = input("Type in a natural disaster-tweet:")
 
+# TODO: create caching mechanism for optimizing model runtime
 bert_model_saved = keras.models.load_model(
     "./models/keras_hyperband_disaster_prediction.h5",
     custom_objects={"KerasLayer": hub.KerasLayer},
@@ -21,8 +22,8 @@ print(
 )
 
 # Preprocessing
-input_sentence = clean_sentence_pipeline(input_sentence)
-bert_encoded_sentence = bert_encode([input_sentence])
+input_sentence_preprocess = clean_sentence_pipeline(input_sentence)
+bert_encoded_sentence = bert_encode([input_sentence_preprocess])
 
 # Predictions
 pred = bert_model_saved.predict(bert_encoded_sentence)
